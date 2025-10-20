@@ -231,7 +231,7 @@ buffer['POS%'] = 100 * buffer['POS'] / ((ps['MINS'] / (buffer['TmMINS'] / 5)) * 
 df[['POS/G','POS%']] = buffer[['POS/G','POS%']]
 
 # Usage Rate
-buffer['USG%'] = 100 * ((ps['FGA'] + 0.44 * ps['FTA'] + ps['TO']) * buffer['TmMINS']/5) / (ps['MINS'] * buffer['TmPOS'])
+buffer['USG%'] = 100 * ((ps['FGA'] + 0.44 * ps['FTA'] + ps['TO']) * buffer['TmMINS']/5) / (ps['MINS'] * (ts['FGA'] + 0.44 * ts['FTA'] + ts['TO']))
 df['USG%'] = buffer['USG%']
 
 # Scoring Metrics
