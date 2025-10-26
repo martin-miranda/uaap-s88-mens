@@ -169,17 +169,18 @@ with tab5:
         )
 
     if stat != None and target_player != None:
-        base_directory = './player_stats'
+        base_directory = './player_stats/'
         league_player = 'League'
         player_data = pd.DataFrame(columns=['GP', stat])
         league_data = pd.DataFrame(columns=['GP', stat])
 
         game_directories = [d for d in os.listdir(base_directory) if d.startswith('./player_stats/player_per_game')]
         game_directories.sort()
+        print(game_directories)
 
         for game_dir in game_directories:
-            ##game_directory = os.path.join(base_directory, game_dir)
-            ##file_path = os.path.join(game_directory, 'player_per_game.csv')
+            game_directory = os.path.join(base_directory, game_dir)
+            file_path = os.path.join(game_directory, 'player_per_game.csv')
             df = pd.read_csv(game_dir, index_col=['PLAYER'])
             if target_player in df.index:
                 player_game_data = df.loc[target_player, ['GP', stat]]
