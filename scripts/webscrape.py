@@ -10,8 +10,8 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-first_game = 49
-last_game = 50
+first_game = 51
+last_game = 52
 
 for game_id in range(first_game, last_game + 1):
     url = f"https://uaap.livestats.ph/tournaments/uaap-season-88-men-s-basketball?game_id={game_id}"
